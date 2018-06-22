@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--<script src="js/jquery-1.9.1.js"></script>-->
+    <!--<script src="js/myjs.js"></script>-->
+</head>
+<body>
+<h1>hello world!!!</h1>
+<div class="change_img"><img src="images/1.jpeg" alt=""></div>
+<button>change user</button>
+<script>
+    // $(function () {
+    //     //切换图片
+    //
+    // });
+    var myImg=document.querySelector('img');
+    myImg.onclick=function () {
+        var mySrc=myImg.getAttribute('src');
+        if(mySrc === 'images/1.jpeg'){
+            myImg.setAttribute('src','images/2.jpeg');
+        }else {
+            myImg.setAttribute('src','images/1.jpeg');
+        }
+    }
+
+    var myHeading = document.querySelector('h1');
+    var myButton = document.querySelector('button');
+    myButton.onclick = function () {
+        setUserName();
+    }
+    function setUserName() {
+        var myName = prompt('please enter your name');
+        localStorage.setItem('name',myName);
+        myHeading.innerHTML = 'hi,' + myName;
+    }
+    if(!localStorage.getItem('name'))
+    {
+        setUserName();
+    }else {
+        var storedName = localStorage.getItem('name');
+        myHeading.innerHTML = 'hi,' + storedName;
+    }
+
+</script>
+</body>
+</html>
